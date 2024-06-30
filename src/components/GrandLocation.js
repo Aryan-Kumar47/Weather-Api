@@ -21,24 +21,26 @@ export default function GrandLocation() {
       }
     }
     getfromSessionStroage()
-    async function fetchUserWeatherInfo(coordinates){
-      const {lat, long} = coordinates;
-      setIsLoading(true)
-    
-      // API call
-      try{
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`);
-        let dataU = await response.json();
-        setData(dataU)
-        // renderWeatherInfo(data);
-      }
-      catch(err) {
-        
-      } finally {
-        setIsLoading(false)
-      }
-    }
   },[])
+
+  async function fetchUserWeatherInfo(coordinates){
+    const {lat, long} = coordinates;
+    setIsLoading(true)
+  
+    // API call
+    try{
+      let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`);
+      let dataU = await response.json();
+      setData(dataU)
+      setHasCoordinates(true)
+      // renderWeatherInfo(data);
+    }
+    catch(err) {
+      
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   function getLocation(){
     if(navigator.geolocation){
@@ -55,7 +57,7 @@ export default function GrandLocation() {
     };
     console.log(userCoordinates)
     sessionStorage.setItem('user-container' , JSON.stringify(userCoordinates));
-    // fetchUserWeatherInfo(userCoordinates);
+    fetchUserWeatherInfo(userCoordinates);
   }
   return (
     isLoading ? <div className='w-full h-full flex justify-center items-center'><div class="spinner"></div></div> : 

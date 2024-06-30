@@ -70,7 +70,7 @@ export default function GrandLocation() {
           <div className='flex items-center justify-center gap-2 flex-col'>
             <h1 className='capitalize sm:text-5xl text-3xl'>grant location access</h1>
             <p className='capitalize text-lg'>allow access to get weather information</p>
-            <button onClick={getLocation} className='capitalize px-8 py-4 border shadow-md rounded-full bg-green-400 text-white'>allow access</button>
+            <button onClick={getLocation} className='capitalize px-8 py-4 border shadow-md rounded-full bg-green-400 text-white hover:bg-green-600'>allow access</button>
           </div>
         </div>
       ) 

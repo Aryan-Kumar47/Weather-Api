@@ -25,7 +25,7 @@ export default function YourWeather({data}) {
                 <div className='w-20 h-20'>
                   <img className='w-full h-full object-cover' src={`http://openweathermap.org/img/w/${data?.weather?.[0]?.icon}.png`} alt='temp'/>
                 </div>
-                <h1 className='text-5xl'>{data?.main?.temp}</h1>
+                <h1 className='sm:text-5xl text-3xl'>{data?.main?.temp}</h1>
                 <TbTemperatureCelsius size={35} />
               </div>
               <div className='text-xl flex flex-col justify-start items-start'>
